@@ -5,6 +5,49 @@
 
 English README: [README.en.md](README.en.md)
 
+## 30 秒上手
+
+### 1. 一句话安装
+
+如果你的环境里已经有 Codex 和内置 `skill-installer`，直接运行：
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --url https://github.com/ludoven/skill-android-storage-analyzer/tree/main/android-storage-analyzer --method git
+```
+
+安装后重启 Codex。
+
+### 2. 在 Codex 里怎么触发
+
+你可以直接对 Codex 说这些话：
+
+- `帮我看看这台 Android 设备存储空间`
+- `分析一下这个电视盒子为什么空间不够`
+- `看看 /sdcard、Android/media、Android/obb 哪些最占空间`
+- `给我一份 Android 存储清理报告`
+- `用 android-storage-analyzer 看一下当前连接设备`
+
+### 3. 最短使用示例
+
+如果你已经把设备连上 `adb`，直接对 Codex 说：
+
+```text
+用 android-storage-analyzer 看一下当前连接的 Android 设备存储
+```
+
+或者更明确一点：
+
+```text
+帮我分析一下这台电视盒子的存储占用，并生成一份清理报告
+```
+
+## 这个仓库适合谁
+
+- 正在用 Codex
+- 想分析 Android 手机 / 平板 / TV 盒子空间占用
+- 不想手动拼 `adb shell du` / `df` 命令
+- 想要一份 HTML 报告，而不是零散终端输出
+
 ## 功能
 
 - 通过 `adb` 扫描 Android 设备存储
@@ -35,7 +78,7 @@ skill-android-storage-analyzer/
 └── README.en.md
 ```
 
-## 适用场景
+## 适用场景 / 触发词
 
 当用户出现这些需求时适合使用：
 
@@ -45,6 +88,21 @@ skill-android-storage-analyzer/
 - “Android 版存储分析”
 - “帮我看看 `Android/media` / `Android/obb`”
 - “能不能做一个像桌面版 storage-analyzer 的 Android 版本”
+
+也可以显式写：
+
+- `Use $android-storage-analyzer to inspect current Android device storage`
+- `用 $android-storage-analyzer 分析当前设备空间`
+
+## Codex 实际会做什么
+
+触发后，这个 skill 会引导 Codex：
+
+1. 通过 `adb` 做只读扫描
+2. 找出占空间最大的目录或应用相关区域
+3. 分成 `🟢 / 🟡 / 🔴` 三类
+4. 生成静态或交互式 HTML 报告
+5. 给出适合小白理解的清理建议
 
 ## 工作方式
 
@@ -107,7 +165,7 @@ python3 android-storage-analyzer/scripts/server.py /tmp/android_storage_analysis
 - 主要占用来自应用本体，而不是媒体、下载或缓存目录
 - 没有发现值得作为 `green` 一键清理对象的目录
 
-## 安装到 Codex
+## 手动安装到 Codex
 
 如果你要把 skill 放回 Codex 的 skill 目录，可直接复制：
 

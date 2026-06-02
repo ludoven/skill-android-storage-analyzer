@@ -5,6 +5,47 @@ It scans Android phones, tablets, and TV boxes over `adb`, produces `🟢 / 🟡
 
 中文说明: [README.md](README.md)
 
+## 30-Second Quick Start
+
+### 1. One-Line Install
+
+If your environment already has Codex and the built-in `skill-installer`, run:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --url https://github.com/ludoven/skill-android-storage-analyzer/tree/main/android-storage-analyzer --method git
+```
+
+Then restart Codex.
+
+### 2. How To Trigger It In Codex
+
+You can say things like:
+
+- `Check storage on the currently connected Android device`
+- `Analyze why this Android TV box is running out of space`
+- `Inspect which folders under /sdcard, Android/media, and Android/obb use the most storage`
+- `Generate an Android storage cleanup report`
+- `Use android-storage-analyzer on the connected device`
+
+### 3. Shortest Example Prompt
+
+```text
+Use android-storage-analyzer to inspect the currently connected Android device storage
+```
+
+Or:
+
+```text
+Analyze this Android TV box storage and generate a cleanup report
+```
+
+## Who This Repo Is For
+
+- Codex users
+- People analyzing Android phone / tablet / TV box storage
+- Anyone who does not want to manually assemble `adb shell du` and `df` commands
+- Anyone who wants an HTML report instead of raw terminal output
+
 ## Features
 
 - Read-only Android storage scanning over `adb`
@@ -34,7 +75,7 @@ skill-android-storage-analyzer/
 └── README.en.md
 ```
 
-## Typical Use Cases
+## Typical Use Cases / Trigger Phrases
 
 Use this skill when users ask things like:
 
@@ -43,6 +84,20 @@ Use this skill when users ask things like:
 - "Which folders are using the most storage?"
 - "Inspect `Android/media` or `Android/obb`"
 - "Build an Android version of desktop storage-analyzer"
+
+You can also explicitly write:
+
+- `Use $android-storage-analyzer to inspect current Android device storage`
+
+## What Codex Will Actually Do
+
+After the skill is triggered, Codex is guided to:
+
+1. run a read-only `adb` scan
+2. identify large directories and app-related storage areas
+3. classify findings into `🟢 / 🟡 / 🔴`
+4. generate a static or interactive HTML report
+5. provide cleanup guidance in plain language
 
 ## Workflow
 
@@ -105,7 +160,7 @@ Test result summary:
 - Storage usage mostly comes from installed apps rather than media, downloads, or shared-storage clutter
 - No `green` one-click cleanup target was identified on this device
 
-## Install Into Codex
+## Manual Install Into Codex
 
 To place the skill back into a Codex skills directory:
 
