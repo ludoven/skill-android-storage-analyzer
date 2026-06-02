@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-06-02 10:35:30",
+  "scan_seconds": 0,
+  "system": {
+    "serial": "0123456789ABCDEF",
+    "model": "E300",
+    "brand": "",
+    "device": "",
+    "android_version": "11.1",
+    "sdk": "",
+    "fingerprint": "",
+    "volumes": [
+      {
+        "mount": "/data",
+        "filesystem": "/dev/block/mmcblk0p14",
+        "total": "3.9 GB",
+        "used": "2.3 GB",
+        "free": "1.5 GB",
+        "used_percent": "60%",
+        "mounted_on": "/data"
+      },
+      {
+        "mount": "/sdcard",
+        "filesystem": "/dev/fuse",
+        "total": "3.9 GB",
+        "used": "2.3 GB",
+        "free": "1.5 GB",
+        "used_percent": "60%",
+        "mounted_on": "/storage/emulated"
+      }
+    ]
+  },
+  "top5": [
+    {
+      "rank": 1,
+      "tier": "red",
+      "size": "约 442.0 MB",
+      "type": "应用本体",
+      "name": "com.google.android.gms",
+      "path": "package:com.google.android.gms",
+      "note": "Google Play 服务，本体占用最大，但不属于应直接手删的目标。"
+    },
+    {
+      "rank": 2,
+      "tier": "red",
+      "size": "约 251.9 MB",
+      "type": "应用本体",
+      "name": "com.android.vending",
+      "path": "package:com.android.vending",
+      "note": "Play 商店应用本体，不建议直接处理。"
+    },
+    {
+      "rank": 3,
+      "tier": "red",
+      "size": "约 171.9 MB",
+      "type": "应用本体 + 缓存",
+      "name": "org.xbmc.kodi",
+      "path": "package:org.xbmc.kodi",
+      "note": "Kodi 本体约 171.9 MB，缓存约 73.7 MB，是当前最明显的应用级可关注项。"
+    },
+    {
+      "rank": 4,
+      "tier": "red",
+      "size": "约 157.2 MB",
+      "type": "应用本体",
+      "name": "com.android.chrome",
+      "path": "package:com.android.chrome",
+      "note": "Chrome 应用本体，不是共享存储垃圾。"
+    },
+    {
+      "rank": 5,
+      "tier": "red",
+      "size": "约 123.4 MB",
+      "type": "应用本体",
+      "name": "com.enjoy.meowclaw.app",
+      "path": "package:com.enjoy.meowclaw.app",
+      "note": "业务应用本体，占用正常，不建议直接清。"
+    }
+  ],
+  "green": [],
+  "yellow": [
+    {
+      "name": "/sdcard/Android/data/com.bts.service",
+      "path": "/sdcard/Android/data/com.bts.service",
+      "size": "约 10.9 MB",
+      "content_profile": "共享存储下的应用公开数据目录，体积很小。",
+      "why_manual": "目录可读，但体积只有约 10.9 MB，不值得作为清理优先级。若误删，可能影响对应应用的公开数据。",
+      "disposal": "除非你明确知道这个目录是无用日志或临时文件，否则不建议动它。真正需要清理时，优先在应用内或系统应用管理里处理。",
+      "risk": "直接删除可能导致对应应用丢失外部存储配置或下载内容。"
+    },
+    {
+      "name": "/sdcard/Android",
+      "path": "/sdcard/Android",
+      "size": "约 12.0 MB",
+      "content_profile": "盒子上所有共享存储 Android 目录总量很小，包含 data/media/obb。",
+      "why_manual": "虽然可读，但总体只有约 12 MB，没有清理价值；其中还夹杂应用共享数据目录。",
+      "disposal": "无需处理。若后续某个目录异常增长，再针对单个包名目录检查。",
+      "risk": "整目录误删会影响多个应用。"
+    },
+    {
+      "name": "/sdcard/Screenshots",
+      "path": "/sdcard/Screenshots",
+      "size": "约 32 KB",
+      "content_profile": "截图目录，体积极小。",
+      "why_manual": "这类目录通常是用户内容，但当前几乎为空。",
+      "disposal": "无需处理。",
+      "risk": "删除后会丢失截图。"
+    }
+  ],
+  "red": [
+    {
+      "name": "org.xbmc.kodi",
+      "path": "package:org.xbmc.kodi",
+      "size": "约 171.9 MB + 73.7 MB 缓存",
+      "why_keep": "这是当前最显眼的应用级占用，但释放它需要应用级操作，不应当作文件夹垃圾直接删。",
+      "indirect_release": "若你想回收这部分空间，优先在盒子设置里的应用管理里清理 Kodi 缓存；如果已不用 Kodi，再考虑卸载应用。",
+      "auto_reclaim": "应用内清缓存或系统应用管理最合适。"
+    },
+    {
+      "name": "com.google.android.gms",
+      "path": "package:com.google.android.gms",
+      "size": "约 442.0 MB",
+      "why_keep": "Google Play 服务属于系统关键组件，不能为了腾空间盲动。",
+      "indirect_release": "不建议手动处理；如遇异常，最多通过系统应用管理清缓存，而不是卸载或删目录。",
+      "auto_reclaim": "通常无须处理。"
+    },
+    {
+      "name": "com.android.vending",
+      "path": "package:com.android.vending",
+      "size": "约 251.9 MB",
+      "why_keep": "Play 商店应用本体，不属于共享存储垃圾。",
+      "indirect_release": "只在排障时考虑清缓存，不建议把它作为常规释放空间目标。",
+      "auto_reclaim": "通常无须处理。"
+    },
+    {
+      "name": "com.android.chrome",
+      "path": "package:com.android.chrome",
+      "size": "约 157.2 MB",
+      "why_keep": "Chrome 占用主要是应用本体，不是共享存储目录堆积。",
+      "indirect_release": "如果盒子几乎不用 Chrome，可考虑禁用或通过应用管理清缓存；不要在共享存储里盲删。",
+      "auto_reclaim": "应用管理清缓存。"
+    }
+  ],
+  "denied": [],
+  "warnings": [
+    "当前盒子没有明显的大型 Download、DCIM、Pictures、Movies 或 Android/media/obb 目录。",
+    "应用级数据主要来自 dumpsys diskstats 汇总，属于应用本体与缓存视角，而不是共享存储文件扫描。",
+    "本次未发现值得作为一键清理对象的绿灯目录。"
+  ],
+  "summary": {
+    "overview": "这台 E300 盒子的存储状态正常，/data 与共享存储都只用了约 60%。没有发现大的下载目录、媒体目录或共享存储垃圾；当前占用主要是应用本体，其中最值得关注的是 Kodi 的应用体积与缓存。",
+    "tier_stats": {
+      "green": "约 0 GB",
+      "yellow": "约 0.0 GB",
+      "red": "约 1.0 GB"
+    },
+    "priority": [
+      "当前不需要做文件级清理，盒子没有明显的共享存储垃圾。",
+      "如果你只是想进一步压缩占用，优先看 Kodi 的缓存，其次再看 Chrome 或其他不常用应用。",
+      "不要把 Google Play 服务或 Play 商店当成清理目标。"
+    ],
+    "long_term": [
+      "后续如果安装更多流媒体或播放器应用，再定期检查 /sdcard/Android/data、Android/media 和 Download。",
+      "对 TV 盒子，更常见的空间增长来源是应用缓存和更新包，不是照片视频。",
+      "当系统提示空间紧张时，先用应用管理清缓存，再决定是否卸载不常用应用。"
+    ]
+  }
+}

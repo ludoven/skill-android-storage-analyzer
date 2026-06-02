@@ -1,0 +1,4 @@
+interface:
+  display_name: "Android Storage Analyzer"
+  short_description: "Scan Android storage over adb safely"
+  default_prompt: "Use $android-storage-analyzer to inspect an Android device over adb and produce storage cleanup guidance."
