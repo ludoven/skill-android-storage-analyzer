@@ -5,6 +5,13 @@
 
 English README: [README.en.md](README.en.md)
 
+## 先看效果
+
+- 在线报告页：
+  [https://ludoven.github.io/skill-android-storage-analyzer/reports/e300-android-storage-report.html](https://ludoven.github.io/skill-android-storage-analyzer/reports/e300-android-storage-report.html)
+- GitHub Pages 首页：
+  [https://ludoven.github.io/skill-android-storage-analyzer/](https://ludoven.github.io/skill-android-storage-analyzer/)
+
 ## 30 秒上手
 
 ### 1. 一句话安装

@@ -5,6 +5,13 @@ It scans Android phones, tablets, and TV boxes over `adb`, produces `🟢 / 🟡
 
 中文说明: [README.md](README.md)
 
+## See It First
+
+- Live report page:
+  [https://ludoven.github.io/skill-android-storage-analyzer/reports/e300-android-storage-report.html](https://ludoven.github.io/skill-android-storage-analyzer/reports/e300-android-storage-report.html)
+- GitHub Pages home:
+  [https://ludoven.github.io/skill-android-storage-analyzer/](https://ludoven.github.io/skill-android-storage-analyzer/)
+
 ## 30-Second Quick Start
 
 ### 1. One-Line Install
