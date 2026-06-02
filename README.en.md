@@ -115,6 +115,15 @@ cp -R android-storage-analyzer "${CODEX_HOME:-$HOME/.codex}/skills/"
 
 Then restart Codex.
 
+## GitHub Pages
+
+If GitHub Pages is enabled for this repository, the default entry page redirects to the included test report:
+
+- Pages home:
+  `https://ludoven.github.io/skill-android-storage-analyzer/`
+- Direct report URL:
+  `https://ludoven.github.io/skill-android-storage-analyzer/reports/e300-android-storage-report.html`
+
 ## Requirements
 
 - Python 3
